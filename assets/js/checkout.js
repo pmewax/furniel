@@ -4,9 +4,26 @@ let orderData = {
     items: []
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+let csrfToken = '';
+
+document.addEventListener('DOMContentLoaded', async function() {
+    await loadCsrfToken();
     initializeCheckout();
 });
+
+async function loadCsrfToken() {
+    try {
+        const res = await fetch('/api/csrf-token.php', { credentials: 'same-origin' });
+        if (!res.ok) throw new Error('Не удалось получить CSRF токен');
+        const data = await res.json();
+        if (data.success && data.token) {
+            csrfToken = data.token;
+        }
+    } catch (error) {
+        console.error('Ошибка получения CSRF токена', error);
+        showNotification('Не удалось инициализировать защиту формы', 'error');
+    }
+}
 
 function initializeCheckout() {
     loadOrderItems();
@@ -232,32 +249,40 @@ function sendOrderToServer() {
     formData.append('total', formatPrice(total));
     
     // Отправка на сервер
+    if (!csrfToken) {
+        showNotification('CSRF токен отсутствует. Обновите страницу.', 'error');
+        return;
+    }
+
     fetch('send_order.php', {
         method: 'POST',
+        headers: {
+            'X-CSRF-Token': csrfToken
+        },
         body: formData
     })
-    .then(response => {
-        if (response.ok) {
-            return response.text();
-        }
-        throw new Error('Ошибка сети');
-    })
-    .then(data => {
-        // Очистить корзину
-        localStorage.setItem('furniel_cart_v1', '[]');
-        
-        // Показать сообщение об успехе
-        showOrderSuccess();
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
-        showNotification('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.', 'error');
-        
-        // Восстановить кнопку
-        const submitBtn = document.getElementById('submitOrder');
-        submitBtn.textContent = 'Отправить заявку менеджеру';
-        submitBtn.disabled = false;
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Ошибка сети');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                localStorage.setItem('furniel_cart_v1', '[]');
+                showOrderSuccess();
+            } else {
+                throw new Error(data.error || 'Ошибка отправки заявки');
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+            showNotification(error.message || 'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.', 'error');
+
+            const submitBtn = document.getElementById('submitOrder');
+            submitBtn.textContent = 'Отправить заявку менеджеру';
+            submitBtn.disabled = false;
+        });
 }
 
 function showOrderSuccess() {

@@ -1,62 +1,68 @@
 <?php
-session_start();
 
-// 🔒 Только для админа
-if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
-    http_response_code(404);
-    exit('404 Not Found');
-}
+declare(strict_types=1);
 
+require_once __DIR__ . '/../config/bootstrap.php';
 require_once __DIR__ . '/../config/database.php';
 
-header('Content-Type: text/plain; charset=utf-8');
+ensureSession();
+
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    jsonResponse(['success' => false, 'error' => 'Доступ запрещен'], 403);
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    jsonResponse(['success' => false, 'error' => 'Метод не поддерживается'], 405);
+}
+
+if (!validateCsrfToken(getRequestHeader('X-CSRF-Token'))) {
+    jsonResponse(['success' => false, 'error' => 'Неверный CSRF-токен'], 403);
+}
 
 try {
     $pdo = createPdoConnection();
-    echo "✅ Подключение к БД успешно\n";
 } catch (RuntimeException $e) {
-    exit("❌ Ошибка подключения к БД\n");
+    jsonResponse(['success' => false, 'error' => 'Ошибка подключения к базе данных'], 500);
 }
 
-// ✅ Очищаем таблицу перед импортом
-try {
-    $pdo->exec("TRUNCATE TABLE products");
-    echo "🧹 Таблица products очищена\n";
-} catch (PDOException $e) {
-    echo "⚠️ Не удалось очистить таблицу: " . $e->getMessage() . "\n";
-}
-
-// ✅ Путь к CSV
 $uploadDir = __DIR__ . '/../uploads/';
 $csvPath = $uploadDir . 'woodville_transformed_for_craftum_v2.csv';
 
-if (!file_exists($csvPath)) {
-    exit("❌ Файл не найден: $csvPath");
-}
-
-echo "📁 Путь к файлу: $csvPath\n";
-
-// Открываем CSV
-$file = fopen($csvPath, 'r');
-if (!$file) exit("❌ Ошибка открытия файла");
-
-// Читаем заголовки
-$header = fgetcsv($file, 0, ',');
-
-// Вспомогательная функция
-function getValue($data, $key) {
-    foreach ($data as $k => $v) {
-        if (mb_strtolower(trim($k)) === mb_strtolower(trim($key))) {
-            return trim($v);
-        }
-    }
-    return '';
+if (!is_readable($csvPath)) {
+    jsonResponse(['success' => false, 'error' => 'CSV файл не найден'], 404);
 }
 
 $imported = 0;
 $skipped = 0;
 
-$stmt = $pdo->prepare("
+try {
+    $pdo->exec('TRUNCATE TABLE products');
+} catch (PDOException $e) {
+    // Не прерываем процесс, но логируем проблему
+    error_log('Не удалось очистить таблицу products: ' . $e->getMessage());
+}
+
+if (($file = fopen($csvPath, 'r')) === false) {
+    jsonResponse(['success' => false, 'error' => 'Ошибка открытия файла'], 500);
+}
+
+$header = fgetcsv($file, 0, ',');
+if (!$header) {
+    fclose($file);
+    jsonResponse(['success' => false, 'error' => 'Не удалось прочитать заголовок CSV'], 400);
+}
+
+function getValue(array $data, string $key): string
+{
+    foreach ($data as $k => $v) {
+        if (mb_strtolower(trim((string) $k)) === mb_strtolower(trim($key))) {
+            return trim((string) $v);
+        }
+    }
+    return '';
+}
+
+$stmt = $pdo->prepare('
     INSERT INTO products (
         article, link, title, category, category2,
         price, stock, description, manufacturer,
@@ -66,61 +72,65 @@ $stmt = $pdo->prepare("
         :price, :stock, :description, :manufacturer,
         :is_hit, :is_new, :images
     )
-");
+');
 
 while (($row = fgetcsv($file, 0, ',')) !== false) {
     $data = @array_combine($header, $row);
-    if (!$data) { $skipped++; continue; }
+    if (!$data) {
+        $skipped++;
+        continue;
+    }
 
-    // 🔍 Извлекаем значения
     $article = getValue($data, 'Артикул');
     $link = getValue($data, 'Ссылка');
     $title = getValue($data, 'Модель');
     $category = getValue($data, 'Категория1');
     $category2 = getValue($data, 'Категория2');
-    $stock = intval(getValue($data, 'Остатки склад МСК'));
+    $stock = (int) getValue($data, 'Остатки склад МСК');
     $description = getValue($data, 'Описание ОПТ');
     $manufacturer = getValue($data, 'Производитель');
     $is_hit = !empty(getValue($data, 'Хит')) ? 1 : 0;
     $is_new = !empty(getValue($data, 'Новинка')) ? 1 : 0;
 
-    // 💰 Цена (ищем в нескольких местах)
-    $price_raw = getValue($data, 'цена');
-    if (!$price_raw || !is_numeric(str_replace([' ', ','], '', $price_raw))) {
-        $price_raw = getValue($data, 'мрц');
-        if (!$price_raw || !is_numeric(str_replace([' ', ','], '', $price_raw))) {
-            if (preg_match_all('/(\d{3,})/', implode(';', $data), $m)) {
-                $price_raw = end($m[1]);
+    $priceRaw = getValue($data, 'цена');
+    if (!$priceRaw || !is_numeric(str_replace([' ', ','], '', $priceRaw))) {
+        $priceRaw = getValue($data, 'мрц');
+        if (!$priceRaw || !is_numeric(str_replace([' ', ','], '', $priceRaw))) {
+            if (preg_match_all('/(\d{3,})/', implode(';', $data), $matches)) {
+                $priceRaw = end($matches[1]) ?: '0';
             }
         }
     }
 
-    $price_raw = str_replace(['₽', ' ', ',', '"'], '', $price_raw);
-    $price = floatval($price_raw);
+    $price = (float) str_replace(['₽', ' ', ',', '"'], '', $priceRaw);
 
-    // 🖼 Изображения
     $images = [];
     for ($i = 1; $i <= 20; $i++) {
-        $col = "Фото$i";
+        $col = "Фото{$i}";
         $val = getValue($data, $col);
-        if (!empty($val)) $images[] = trim($val);
-    }
-
-    // Дополнительные поля
-    $img_extra = getValue($data, 'Изображения');
-    if (!$img_extra) $img_extra = getValue($data, 'Изображения:');
-    if ($img_extra) {
-        $parts = explode(',', $img_extra);
-        foreach ($parts as $img) {
-            $img = trim($img);
-            if ($img !== '' && !in_array($img, $images)) $images[] = $img;
+        if ($val !== '') {
+            $images[] = trim($val);
         }
     }
 
-    $images_str = implode(',', $images);
+    $imgExtra = getValue($data, 'Изображения');
+    if ($imgExtra === '') {
+        $imgExtra = getValue($data, 'Изображения:');
+    }
+    if ($imgExtra !== '') {
+        $parts = explode(',', $imgExtra);
+        foreach ($parts as $img) {
+            $img = trim($img);
+            if ($img !== '' && !in_array($img, $images, true)) {
+                $images[] = $img;
+            }
+        }
+    }
 
-    // ⚙️ Пропускаем пустые строки
-    if (!$article && !$title) { $skipped++; continue; }
+    if ($article === '' && $title === '') {
+        $skipped++;
+        continue;
+    }
 
     try {
         $stmt->execute([
@@ -135,10 +145,10 @@ while (($row = fgetcsv($file, 0, ',')) !== false) {
             ':manufacturer' => $manufacturer,
             ':is_hit' => $is_hit,
             ':is_new' => $is_new,
-            ':images' => $images_str
+            ':images' => implode(',', $images),
         ]);
         $imported++;
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         $skipped++;
         continue;
     }
@@ -146,6 +156,8 @@ while (($row = fgetcsv($file, 0, ',')) !== false) {
 
 fclose($file);
 
-echo "✅ Импортировано товаров: $imported\n";
-echo "⚠️ Пропущено строк: $skipped\n";
-?>
+jsonResponse([
+    'success' => true,
+    'imported' => $imported,
+    'skipped' => $skipped,
+]);

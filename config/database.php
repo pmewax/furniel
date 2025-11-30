@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/bootstrap.php';
+
 /**
- * Returns a PDO connection using environment variables when available.
+ * Returns a PDO connection using strict environment configuration.
  */
 function createPdoConnection(): PDO
 {
@@ -13,19 +15,20 @@ function createPdoConnection(): PDO
         return $pdo;
     }
 
-    $host = getenv('DB_HOST') ?: 'localhost';
-    $dbname = getenv('DB_NAME') ?: 'cu87306_bade';
-    $username = getenv('DB_USER') ?: 'cu87306_bade';
-    $password = getenv('DB_PASSWORD') ?: 'YY17pFLM';
+    $host = requireEnv('DB_HOST');
+    $dbname = requireEnv('DB_NAME');
+    $username = requireEnv('DB_USER');
+    $password = requireEnv('DB_PASSWORD');
 
     try {
         $pdo = new PDO(
-            "mysql:host={$host};dbname={$dbname};charset=utf8mb4",
+            sprintf('mysql:host=%s;dbname=%s;charset=utf8mb4', $host, $dbname),
             $username,
             $password,
             [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
             ]
         );
 

@@ -109,8 +109,9 @@ class CatalogManager {
                     });
                     
                     if (response.ok) {
-                        const products = await response.json();
-                        if (products && products.length > 0) {
+                        const payload = await response.json();
+                        const products = Array.isArray(payload) ? payload : Array.isArray(payload?.data) ? payload.data : [];
+                        if (products.length > 0) {
                             console.log(`✅ Данные получены с ${endpoint}`);
                             return products;
                         }
