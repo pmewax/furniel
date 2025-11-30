@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Furniel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+    </div>
+
+ <div id="header"></div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Главная</a>
+            <a href="catalog.html" class="mobile-nav-link">Каталог</a>
+            <a href="blog.html" class="mobile-nav-link">Блог</a>
+            <a href="about.html" class="mobile-nav-link active">О нас</a>
+        </nav>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal search-modal" id="searchModal">
+        <div class="modal-content">
+            <button class="modal-close" id="searchClose">&times;</button>
+            <h3>Поиск товаров</h3>
+            <input type="text" id="searchInput" placeholder="Введите название товара...">
+            <div class="search-results" id="searchResults">
+                <!-- Результаты поиска будут здесь -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <div class="about-hero-text animate-slide-in-left">
+                    <div class="hero-badge">
+                        <span>О компании Furniel</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Создаем мебель, которая
+                        <span class="text-gradient">вдохновляет</span>
+                    </h1>
+                    <p class="hero-description">
+                        С 2018 года мы создаем премиальную мебель, которая превращает дома в уютные пространства, 
+                        наполненные гармонией и комфортом.
+                    </p>
+                </div>
+                <div class="about-hero-visual animate-slide-in-right">
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                             alt="Наша команда" class="image-main">
+                        <div class="image-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Остальная часть страницы остается без изменений -->
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>Наша миссия</h2>
+                    <p>
+                        Мы верим, что мебель должна быть не только функциональной, но и создавать атмосферу, 
+                        вдохновлять на новые идеи и дарить ощущение дома. Каждый предмет в нашем каталоге — 
+                        это результат тщательной работы дизайнеров, инженеров и мастеров, которые вкладывают 
+                        душу в создание идеального продукта.
+                    </p>
+                </div>
+                <div class="mission-stats">
+                    <div class="mission-stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Лет на рынке</div>
+                    </div>
+                    <div class="mission-stat">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Довольных клиентов</div>
+                    </div>
+                    <div class="mission-stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Дизайнеров в команде</div>
+                    </div>
+                    <div class="mission-stat">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Стран поставок</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-header">
+                <h2>Наши ценности</h2>
+                <p>Принципы, которые лежат в основе нашей работы</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card card glass animate-fade-in-up">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" 
+                                  stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Качество</h3>
+                    <p>Используем только лучшие материалы и контролируем каждый этап производства</p>
+                </div>
+
+                <div class="value-card card glass animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" 
+                                  stroke="var(--primary)" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" 
+                                  stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Инновации</h3>
+                    <p>Постоянно исследуем новые технологии и тренды в дизайне мебели</p>
+                </div>
+
+                <div class="value-card card glass animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 21H12M16 21H12M12 21V17M12 17C15.3137 17 18 14.3137 18 11C18 7.68629 15.3137 5 12 5C8.68629 5 6 7.68629 6 11C6 14.3137 8.68629 17 12 17Z" 
+                                  stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Экологичность</h3>
+                    <p>Сертифицированная древесина и безопасные материалы — наш приоритет</p>
+                </div>
+
+                <div class="value-card card glass animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M17 8C19.2091 8 21 6.20914 21 4C21 1.79086 19.2091 0 17 0C14.7909 0 13 1.79086 13 4C13 6.20914 14.7909 8 17 8Z" 
+                                  stroke="var(--primary)" stroke-width="2"/>
+                            <path d="M2 12H13M22 12H19M16 6V12M16 12V20C16 21.1046 15.1046 22 14 22H4C2.89543 22 2 21.1046 2 20V12H16Z" 
+                                  stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Доступность</h3>
+                    <p>Создаем премиальную мебель по справедливым ценам для каждого</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content card bg-gradient shadow-glow">
+                <div class="cta-text">
+                    <h2>Присоединяйтесь к нашей истории</h2>
+                    <p>Станьте частью сообщества Furniel и создайте дом своей мечты вместе с нами</p>
+                </div>
+                <div class="cta-actions">
+                    <button class="btn btn-accent btn-lg" id="contactBtn">
+                        <span>Связаться с нами</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 12H16M12 8V16M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" 
+                                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="footer"></div>
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/about.js"></script>
+    <script src="assets/js/header-functionality.js"></script>
+</body>
+</html>

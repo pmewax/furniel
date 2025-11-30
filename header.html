@@ -1,0 +1,114 @@
+<header class="header glass">
+    <div class="container">
+        <div class="header-content">
+            <!-- Логотип -->
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-container">
+                        <img src="images/logo.png" alt="Furniel Logo">
+                    </div>
+                    <h1>Furniel</h1>
+                </a>
+            </div>
+            
+            <!-- Навигация для десктопа -->
+            <nav class="nav desktop-nav">
+                <a href="index.html" class="nav-link" data-page="index">Главная</a>
+                <a href="catalog.html" class="nav-link" data-page="catalog">Каталог</a>
+                <a href="blog.html" class="nav-link" data-page="blog">Блог</a>
+                <a href="about.html" class="nav-link" data-page="about">О нас</a>
+            </nav>
+
+            <!-- Действия -->
+            <div class="header-actions">
+                <!-- Поиск -->
+                <button class="icon-btn search-btn" id="searchBtn" aria-label="Поиск">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" 
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Корзина -->
+                <a href="cart.html" class="icon-btn cart-btn" id="cartBtn" aria-label="Корзина">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.1 15.9 4.5 17 5.4 17H17M17 17C16.5 17 16 18 16 18.5C16 19 16.5 19.5 17 19.5C17.5 19.5 18 19 18 18.5C18 18 17.5 17 17 17ZM9 18.5C9 19 8.5 19.5 8 19.5C7.5 19.5 7 19 7 18.5C7 18 7.5 17.5 8 17.5C8.5 17.5 9 18 9 18.5Z" 
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </a>
+                
+                <!-- Мобильное меню -->
+                <button class="mobile-menu-btn icon-btn" id="mobileMenuBtn" aria-label="Меню">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12H21M3 6H21M3 18H21" 
+                              stroke="currentColor" stroke-width="2" 
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+<!-- Mobile Menu Panel -->
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+    <div class="mobile-menu-header">
+        <div class="mobile-menu-logo">
+            <div class="logo-icon">
+                <img src="images/logo.png" alt="Furniel Logo">
+            </div>
+            <h2>Furniel</h2>
+        </div>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6l12 12" 
+                      stroke="currentColor" stroke-width="2" 
+                      stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+    
+    <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-link" data-page="index">
+            <span>Главная</span>
+        </a>
+        <a href="catalog.html" class="mobile-nav-link" data-page="catalog">
+            <span>Каталог</span>
+        </a>
+        <a href="blog.html" class="mobile-nav-link" data-page="blog">
+            <span>Блог</span>
+        </a>
+        <a href="about.html" class="mobile-nav-link" data-page="about">
+            <span>О нас</span>
+        </a>
+    </nav>
+    
+    <div class="mobile-menu-footer">
+        <div class="mobile-cart-info">
+            <div class="mobile-cart-text">
+                <strong>Корзина</strong>
+                <span id="mobileCartCount">0 товаров</span>
+            </div>
+            <div class="mobile-cart-badge" id="mobileCartBadge">0</div>
+        </div>
+        <a href="cart.html" class="btn btn-primary" style="width: 100%; text-align: center;">
+            Перейти в корзину
+        </a>
+    </div>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" id="searchModal">
+    <div class="modal-content">
+        <button class="modal-close" id="searchClose" aria-label="Закрыть поиск">&times;</button>
+        <h3>Поиск товаров</h3>
+        <input type="text" id="searchInput" placeholder="Введите название товара...">
+        <div class="search-results" id="searchResults">
+            <!-- Результаты поиска -->
+        </div>
+    </div>
+</div>

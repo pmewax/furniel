@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина | Furniel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Fallback styles if CSS files fail to load */
+        body { margin: 0; font-family: 'Inter', sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    </style>
+</head>
+<body>
+    <!-- Header placeholder -->
+    <div id="header">Загрузка шапки...</div>
+    
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+    </div>
+
+    <main class="cart-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Корзина покупок</h2>
+                <p>Товары, которые вы добавили в корзину</p>
+            </div>
+
+            <div class="cart-layout">
+                <!-- Основная часть с товарами -->
+                <div class="cart-main-section">
+                    <div id="emptyCart" class="empty-cart" style="display: none;">
+                        <div class="empty-cart-icon">🛒</div>
+                        <h3>Ваша корзина пуста</h3>
+                        <p>Добавьте товары из каталога, чтобы сделать заказ</p>
+                        <a href="catalog.html" class="btn btn-primary">
+                            <span>Перейти в каталог</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" 
+                                      stroke="currentColor" stroke-width="2" 
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div id="cartItems" class="cart-items-container">
+                        <!-- Товары будут загружены через JavaScript -->
+                        <div class="cart-loading">
+                            <div class="loading-spinner"></div>
+                            <p>Загрузка корзины...</p>
+                        </div>
+                    </div>
+
+                    <button id="clearCart" class="clear-cart-btn" style="display: none;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 6H5M5 6H21M5 6V20C5 20.5304 5.21071 21.0391 5.58579 21.4142C5.96086 21.7893 6.46957 22 7 22H17C17.5304 22 18.0391 21.7893 18.4142 21.4142C18.7893 21.0391 19 20.5304 19 20V6H5ZM8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6" 
+                                  stroke="currentColor" stroke-width="2" 
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Очистить корзину
+                    </button>
+                </div>
+
+                <!-- Боковая панель с итогами -->
+                <aside class="cart-sidebar">
+                    <div class="summary-card">
+                        <h3>Сумма заказа</h3>
+                        <div class="order-total">
+                            <div class="total-row">
+                                <span>Товары:</span>
+                                <span id="subtotal">0 ₽</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Доставка:</span>
+                                <span id="deliveryCost">Бесплатно</span>
+                            </div>
+                            <div class="total-divider"></div>
+                            <div class="total-row final-total">
+                                <span>Итого:</span>
+                                <span id="totalCost">0 ₽</span>
+                            </div>
+                        </div>
+                        <button id="proceedToCheckout" class="btn-primary checkout-btn" disabled>
+                            <span>Оформить заказ</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" 
+                                      stroke="currentColor" stroke-width="2" 
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="benefits-card">
+                        <h3>Преимущества</h3>
+                        <div class="benefits-list">
+                            <div class="benefit">
+                                <div class="benefit-icon">🚚</div>
+                                <div class="benefit-text">
+                                    <strong>Бесплатная доставка</strong>
+                                    <span>При заказе от 10 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="benefit">
+                                <div class="benefit-icon">🔄</div>
+                                <div class="benefit-text">
+                                    <strong>Легкий возврат</strong>
+                                    <span>В течение 14 дней</span>
+                                </div>
+                            </div>
+                            <div class="benefit">
+                                <div class="benefit-icon">🔒</div>
+                                <div class="benefit-text">
+                                    <strong>Безопасная оплата</strong>
+                                    <span>Разные способы оплаты</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer placeholder -->
+    <div id="footer">Загрузка футера...</div>
+
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    
+    <!-- Fallback script -->
+    <script>
+        // Basic fallback if include.js fails
+        if (typeof loadHeader === 'undefined') {
+            console.log('Include.js not loaded, using fallback');
+            document.getElementById('header').innerHTML = '<div style="padding: 1rem; text-align: center;">Header not loaded</div>';
+            document.getElementById('footer').innerHTML = '<div style="padding: 1rem; text-align: center;">Footer not loaded</div>';
+        }
+    </script>
+</body>
+</html>

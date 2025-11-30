@@ -1,0 +1,262 @@
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Корзина */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-item-image {
+    width: 60px;
+    height: 60px;
+    background: #eee;
+    border-radius: 4px;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.remove-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-total {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Формы */
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+/* Стили для кликабельного логотипа */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-normal);
+}
+
+.logo-link:hover {
+    transform: translateY(-1px);
+}
+
+.logo-link h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    transition: var(--transition-normal);
+}
+
+.logo-link:hover .logo-icon {
+    transform: scale(1.1);
+}
+/* Стили для кликабельного логотипа в футере */
+.footer-brand .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-normal);
+    width: fit-content;
+}
+
+.footer-brand .logo-link:hover {
+    transform: translateY(-1px);
+}
+
+.footer-brand .logo-link h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.footer-brand .logo-icon {
+    font-size: 2rem;
+    transition: var(--transition-normal);
+}
+
+.footer-brand .logo-link:hover .logo-icon {
+    transform: scale(1.1);
+}
+
+/* Убираем подчеркивание у всех ссылок в футере */
+.footer a {
+    text-decoration: none;
+}
+
+.footer-links a,
+.footer-legal a,
+.social-link,
+.contact-item {
+    text-decoration: none !important;
+}
+
+/* Стили для ссылок в футере */
+.footer-column a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition-fast);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a:hover {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition-fast);
+    text-decoration: none;
+}
+
+.footer-legal a:hover {
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* Социальные сети */
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    transition: var(--transition-normal);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Контактная информация */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+}
+
+.contact-item svg {
+    flex-shrink: 0;
+}
+/* Убираем подчеркивание у всех ссылок в футере при наведении */
+.footer a:hover {
+    text-decoration: none !important;
+}
+
+/* Конкретные стили для разных типов ссылок в футере */
+.footer-column a:hover,
+.footer-legal a:hover,
+.footer-brand .logo-link:hover,
+.social-link:hover {
+    text-decoration: none !important;
+}
+
+/* Дополнительно убеждаемся, что нет подчеркивания */
+.footer a {
+    text-decoration: none;
+}
+
+.footer-column a,
+.footer-legal a,
+.social-link,
+.contact-item {
+    text-decoration: none;
+}
+
+/* При наведении только меняем цвет, без подчеркивания */
+.footer-column a:hover {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.footer-legal a:hover {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.footer-brand .logo-link:hover h3 {
+    text-decoration: none;
+}

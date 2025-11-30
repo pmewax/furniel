@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniel - Современная мебель для вашего дома</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+    </div>
+
+    <!-- Header будет загружен через include.js -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text animate-slide-in-left">
+                    <div class="hero-badge">
+                        <span>🔥 Новинки 2025</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Создайте свой
+                        <span class="text-gradient">идеальный</span>
+                        интерьер
+                    </h1>
+                    <p class="hero-description">
+                        Современная мебель от производителей Китая, Малайзии и России. Более 2300 позиций в каталоге с гарантией 12 месяцев.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg" id="startShoppingBtn">
+                            <span>Начать покупки</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" 
+                                      stroke="currentColor" stroke-width="2" 
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="btn btn-ghost btn-lg" id="viewCollectionsBtn">
+                            <span>Смотреть все товары</span>
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">2300</div>
+                            <div class="stat-label">Позиций товара</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">12*</div>
+                            <div class="stat-label">Месяцев гарантия на всю мебель</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">35 +</div>
+                            <div class="stat-label">Городов доставки собственным транспортом</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual animate-slide-in-right">
+                    <div class="hero-image">
+                        <img src="images/image.png" 
+                             alt="Современная гостиная" class="image-main">
+                        <div class="image-decoration"></div>
+                    </div>
+                    <div class="floating-card card-1">
+                        <div class="card-icon">⭐</div>
+                        <div class="card-content">
+                            <div class="card-title">Хорошее качество</div>
+                            <div class="card-description">Натуральные материалы</div>
+                        </div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon">🚚</div>
+                        <div class="card-content">
+                            <div class="card-title">Доставка</div>
+                            <div class="card-description">Нашим транспортом</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Идеи для вашего пространства</h2>
+                <p>Подберите мебель для каждой комнаты</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card card animate-fade-in-up">
+                    <div class="category-image">
+                        <img src="images/gosti.png" 
+                             alt="Гостиная">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Гостиная</h3>
+                        <p>Диваны, кресла, TV-тумбы</p>
+                        <button class="btn btn-ghost view-category-btn" data-category="living">
+                            <span>Смотреть</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" 
+                                      stroke="currentColor" stroke-width="2" 
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="category-card card animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="category-image">
+                        <img src="images/bedroom.png" 
+                             alt="Спальня">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Спальня</h3>
+                        <p>Кровати, матрасы, комоды</p>
+                        <button class="btn btn-ghost view-category-btn" data-category="bedroom">
+                            <span>Смотреть</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" 
+                                      stroke="currentColor" stroke-width="2" 
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="category-card card animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="category-image">
+                        <img src="images/office.png" 
+                             alt="Офис">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Офис</h3>
+                        <p>Рабочие столы, кресла, стеллажи</p>
+                        <button class="btn btn-ghost view-category-btn" data-category="office">
+                            <span>Смотреть</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" 
+                                      stroke="currentColor" stroke-width="2" 
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card card glass animate-fade-in-up">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" 
+                                  stroke="var(--primary)" stroke-width="2"/>
+                            <path d="M19.4 15C19.2669 15.3031 19.1337 15.6062 19.0006 15.9094C18.5136 16.941 18.0201 17.9696 17.5201 19M4.6 15C4.73312 15.3031 4.86624 15.6062 4.99936 15.9094C5.48636 16.941 5.97987 17.9696 6.47987 19" 
+                                  stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M19.4 9C19.2669 8.69687 19.1337 8.39375 19.0006 8.09063C18.5136 7.059 18.0201 6.03045 17.5201 5M4.6 9C4.73312 8.69687 4.86624 8.39375 4.99936 8.09063C5.48636 7.059 5.97987 6.03045 6.47987 5" 
+                                  stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>70 000 +</h3>
+                    <p>Товаров хранится на складе</p>
+                </div>
+
+                <div class="feature-card card glass animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" 
+                                  stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>12*</h3>
+                    <p>Месяцев гарантия на всю мебель</p>
+                </div>
+
+                <div class="feature-card card glass animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" 
+                                  stroke="var(--primary)" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" 
+                                  stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Доставка</h3>
+                    <p>Доставка нашим транспортом в более чем 35 городов России</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content card bg-gradient shadow-glow">
+                <div class="cta-text">
+                    <h2>Готовы преобразить свой дом?</h2>
+                    <p>Получите бесплатную консультацию и подборку мебели специально для вашего пространства</p>
+                </div>
+                <div class="cta-actions">
+                    <button class="btn btn-accent btn-lg" id="consultationBtn">
+                        <span>Получить консультацию</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 12H16M12 8V16M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" 
+                                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer будет загружен через include.js -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script>
+// Emergency header initialization
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚨 Emergency header initialization');
+    
+    // Ждем 1 секунду и инициализируем все вручную
+    setTimeout(function() {
+        console.log('🔄 Initializing header components...');
+        
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('📱 Mobile menu clicked!');
+                if (mobileMenuOverlay) mobileMenuOverlay.classList.add('active');
+                if (mobileMenuPanel) mobileMenuPanel.classList.add('active');
+                document.body.classList.add('no-scroll');
+            });
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('active');
+                if (mobileMenuPanel) mobileMenuPanel.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        }
+        
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', function(e) {
+                if (e.target === mobileMenuOverlay) {
+                    if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('active');
+                    if (mobileMenuPanel) mobileMenuPanel.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+        }
+        
+        // Search
+        const searchBtn = document.getElementById('searchBtn');
+        const searchModal = document.getElementById('searchModal');
+        const searchClose = document.getElementById('searchClose');
+        
+        if (searchBtn && searchModal) {
+            searchBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('🔍 Search clicked!');
+                searchModal.classList.add('active');
+                document.body.classList.add('no-scroll');
+            });
+        }
+        
+        if (searchClose) {
+            searchClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                searchModal.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        }
+        
+        if (searchModal) {
+            searchModal.addEventListener('click', function(e) {
+                if (e.target === searchModal) {
+                    searchModal.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+        }
+        
+        console.log('✅ Emergency initialization complete');
+    }, 1000);
+});
+</script>
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/home.js"></script>
+</body>
+</html>

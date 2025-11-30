@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика и оферта</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style id="furniel-header-inline">
+/* Modern Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+    transition: var(--transition-normal);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: var(--transition-normal);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    color: var(--dark-gray);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    position: relative;
+}
+
+.icon-btn:hover {
+    background: var(--lighter-gray);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--gradient-accent);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+    min-width: 20px;
+    text-align: center;
+}
+
+
+</style>
+<link rel="stylesheet" href="css/overrides.css">
+</head>
+<body>
+    <!-- Шапка -->
+<header class="header glass">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">🪑</div>
+                    <h1>Furniel</h1>
+                </a>
+            </div>
+            
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="blog.html" class="nav-link">Блог</a>
+                <a href="about.html" class="nav-link">О нас</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn search-btn" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" 
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="icon-btn cart-btn" id="cartBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.1 15.9 4.5 17 5.4 17H17M17 17C16.5 17 16 17.5 16 18C16 18.5 16.5 19 17 19C17.5 19 18 18.5 18 18C18 17.5 17.5 17 17 17ZM9 18C9 18.5 8.5 19 8 19C7.5 19 7 18.5 7 18C7 17.5 7.5 17 8 17C8.5 17 9 17.5 9 18Z" 
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn icon-btn" id="mobileMenuBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12H21M3 6H21M3 18H21" 
+                              stroke="currentColor" stroke-width="2" 
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="page-hero" style="padding:60px 0;background:linear-gradient(180deg,#fff,#fbfdff)">
+      <div class="container">
+        <h1 class="hero-title" style="font-size:56px;margin:0 0 10px;color:var(--primary)">Политика и оферта</h1>
+        <p class="hero-subtitle" style="font-size:18px;color:#6b7280;margin:0">Информация о конфиденциальности и условиях</p>
+      </div>
+    </section>
+<main class='container' style='padding:30px 0'>
+<div class='container'><p>Контент в процессе заполнения.</p></div>
+</main>
+
+
+    <section class="policy-page">
+        <div class="container">
+            <div class="policy-header">
+                <h1>Политика конфиденциальности</h1>
+                <p class="last-updated">Последнее обновление: 20 декабря 2023 года</p>
+            </div>
+
+            <div class="policy-content">
+                <div class="policy-intro">
+                    <p>Используя наш сайт, вы доверяете нам свои персональные данные, и мы делаем всё возможное для обеспечения их безопасности. Настоящая Политика конфиденциальности объясняет, какие данные мы собираем, как их используем и защищаем.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>1. Сбор и использование данных</h2>
+                    <p>Предоставляя нам свои персональные данные при оформлении заказа, регистрации на сайте или подписке на рассылку, вы соглашаетесь с их обработкой в соответствии с настоящей Политикой.</p>
+                    <p>Мы собираем только необходимую информацию:</p>
+                    <ul>
+                        <li>Имя и контактные данные</li>
+                        <li>Адрес доставки</li>
+                        <li>Предпочтения в покупках</li>
+                        <li>Историю заказов</li>
+                    </ul>
+                    <p>Эти данные позволяют нам обрабатывать ваши заказы, обеспечивать качественное обслуживание и улучшать работу нашего сайта.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>2. Защита данных</h2>
+                    <p>Мы гарантируем, что ваши данные не будут переданы третьим лицам, за исключением случаев, когда это необходимо для выполнения вашего заказа:</p>
+                    <ul>
+                        <li>Курьерским службам для доставки</li>
+                        <li>Платежным системам для обработки транзакций</li>
+                        <li>Поставщикам для выполнения заказа</li>
+                    </ul>
+                    <p>Мы никогда не передаем ваши данные в рекламные или маркетинговые агентства без вашего явного согласия.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>3. Хранение данных</h2>
+                    <p>Ваши данные хранятся на защищенных серверах на территории Российской Федерации, и доступ к ним имеют только уполномоченные сотрудники. Мы используем современные технологии шифрования для предотвращения несанкционированного доступа.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>4. Ваши права</h2>
+                    <p>Вы всегда можете:</p>
+                    <ul>
+                        <li>Запросить информацию о том, какие ваши данные мы храним</li>
+                        <li>Внести изменения в свои данные</li>
+                        <li>Полностью удалить их из нашей базы</li>
+                        <li>Отозвать согласие на обработку данных</li>
+                    </ul>
+                    <p>Для этого достаточно связаться с нами по указанным на сайте контактам.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>5. Изменения в политике</h2>
+                    <p>Мы оставляем за собой право вносить изменения в настоящую Политику конфиденциальности. Все существенные изменения будут опубликованы на этой странице с указанием даты последнего обновления.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>6. Контакты</h2>
+                    <p>Если у вас остались вопросы о защите ваших персональных данных, вы можете связаться с нами:</p>
+                    <div class="contact-info">
+                        <p>📞 Телефон: <a href="tel:+79939597561">+7 993 959-75-61</a></p>
+                        <p>✉️ Email: <a href="mailto:info@furniel.com">info@furniel.com</a></p>
+                        <p>💬 Telegram: <a href="https://t.me/busnessoa" target="_blank">@busnessoa</a></p>
+                    </div>
+                </div>
+
+                <div class="policy-conclusion">
+                    <p><strong>Благодарим за доверие!</strong></p>
+                    <p>Команда Furniel</p>
+                </div>
+
+                <div class="requisites-details">
+                    <h3>Реквизиты для договоров и оплаты:</h3>
+                    <div class="requisites-list">
+                        <p><strong>Название организации:</strong> Индивидуальный предприниматель Шевченко Антон Павлович</p>
+                        <p><strong>Юридический адрес:</strong> 625054, Россия, Тюменская обл., г. Тюмень, тер. СНТ Луч, ул. Рубиновая, д. 24А</p>
+                        <p><strong>ИНН:</strong> 721220689358</p>
+                        <p><strong>ОГРНИП:</strong> 325723200068500</p>
+                        <p><strong>Расчетный счет:</strong> 40802810000008514258</p>
+                        <p><strong>Банк:</strong> АО «Тинькофф Банк»</p>
+                        <p><strong>ИНН банка:</strong> 7710140679</p>
+                        <p><strong>БИК банка:</strong> 044525974</p>
+                        <p><strong>Корр. счет банка:</strong> 30101810145250000974</p>
+                        <p><strong>Юридический адрес банка:</strong> 127287, г. Москва, ул. Хуторская 2-я, д. 38А, стр. 26</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                  <div class="logo">
+                    <a href="index.html" class="logo-link">
+                       <div class="logo-icon">🪑</div>
+                       <h3>Furniel</h3>
+                    </a>
+                     </div>
+                    <p class="footer-description">Создаем уют и комфорт в вашем доме. Современная мебель по доступным ценам.</p>
+                    <div class="social-links">
+                        <a href="https://t.me/furniel_shop" target="_blank" rel="noopener" aria-label="Telegram" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.78 5.42-.9 6.8-.06.67-.36.89-.89.56-2.45-1.83-3.57-2.98-5.79-4.78-.54-.45-.92-.69-.88-1.09.04-.39.54-.56 1.07-.41.19.06 1.23.79 3.48 2.32 1.18.81 2.12 1.09 2.49 1.22.65.23 1.11.11 1.28-.41.2-.62.61-2.07.89-3.35.2-.94.12-1.17-.42-1.24-.21-.03-.46-.05-.71-.06-.6-.03-1.06-.01-1.53.34-.84.62-1.74 1.5-2.41 2.14-.15.14-.43.27-.66.1-.37-.27-.74-.54-1.1-.82-.92-.72-1.64-1.29-1.76-1.41-.18-.18-.05-.28.13-.36.57-.25 1.83-.66 2.01-.73.31-.12.56-.18.76-.17.48.03.77.25 1.01.87.35.91 1.17 2.55 1.36 2.89.09.17.18.38.06.59-.12.21-.18.25-.4.4-.35.23-.68.41-1.07.65-.11.07-.23.14-.34.22-.25.16-.44.14-.61-.05-.15-.17-.58-.67-.89-1.02-.74-.83-1.24-1.39-1.38-1.5-.31-.25-.08-.31.19-.34.28-.03.73-.07 1.05-.07.39 0 .63.08.9.34.63.62 2.06 2.41 2.2 2.57.14.16.28.36.03.74-.25.38-.45.64-.65.91-.25.33-.5.66-.72 1.01-.18.28-.36.56-.1.95.26.38.59.81.9 1.24.39.54.84 1.06 1.29 1.57.18.2.36.41.53.62.25.32.5.64.74.97.1.14.2.28.29.43.16.29.03.45-.28.45-.54 0-1.31-.8-1.78-1.36-.48-.57-.9-1.21-1.32-1.85-.25-.38-.5-.76-.74-1.15-.1-.16-.2-.32-.29-.48-.16-.27-.16-.27.3-.27.54 0 1.37.25 2.18.73.81.48 1.44.73 2.07.73.69 0 .92-.33.92-.61 0-.16-.08-.33-.23-.58-.15-.25-.35-.55-.6-.95z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/furniel_shop" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://vk.com/furniel_shop" target="_blank" rel="noopener" aria-label="VK" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2m3.01 14.76c-.24.14-.68.27-1.18.27-.41 0-1.11-.14-2.28-.73-1.11-.59-1.89-.86-2.31-.86-.41 0-.68.14-.68.41 0 .14.07.24.14.34.41.48 1.11 1.18 1.52 1.52.41.34.68.48.95.48.27 0 .48-.07.68-.27.27-.27.54-.81.81-1.52.27-.68.41-1.11.68-1.11.14 0 .27.07.34.2 1.18 2.04 1.79 2.92 2.04 2.92.14 0 .34-.07.34-.41 0-.27-.95-2.65-1.32-3.52-.27-.68-.54-.81-.95-.81-.14 0-.34.07-.54.07.34-.61.75-1.79.75-2.79 0-1.25-.34-1.86-1.25-1.86-.95 0-1.39.75-1.52 1.39-.14.68-.27 1.39-.41 2.04-.27.95-.54 1.39-.81 1.39-.14 0-.27-.07-.27-.34 0-.41.81-2.45 1.11-3.32.41-1.11.95-1.86 2.04-1.86 1.11 0 1.66.41 1.66 1.52 0 .61-.14 1.25-.27 1.86l-.41 1.52c-.14.54-.07.95.27.95.14 0 .41-.07.68-.34.41-.41.95-1.11 1.66-2.04.41-.54.81-.81 1.25-.81.34 0 .48.14.48.41 0 .27-.14.54-.41.81-.41.41-.81.81-1.11 1.25z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Каталог</h4>
+                        <a href="catalog.html?category=living">Гостиная</a>
+                        <a href="catalog.html?category=bedroom">Спальня</a>
+                        <a href="catalog.html?category=kitchen">Кухня</a>
+                        <a href="catalog.html?category=office">Офис</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Компания</h4>
+                        <a href="about.html">О нас</a>
+                        <a href="blog.html">Блог</a>
+                        <a href="contacts.html">Контакты</a>
+                        <a href="vacancies.html">Вакансии</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Помощь</h4>
+                        <a href="delivery.html">Доставка и сборка</a>
+                        <a href="payment.html">Оплата</a>
+                        <a href="returns.html">Возврат</a>
+                        <a href="guarantee.html">Гарантия</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Контакты</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                <span>info@furniel.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                <span>+7 993 959-75-61</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+    <script src="js/cart.js"></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

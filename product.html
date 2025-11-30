@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniel - Премиальная мебель для вашего дома</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+    </div>
+<div id="header"></div>
+
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Главная</a>
+                <span>/</span>
+                <a href="catalog.html">Каталог</a>
+                <span>/</span>
+                <a href="catalog.html?category=sofas">Диваны</a>
+                <span>/</span>
+                <span class="current">Диван "Модерн"</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Main -->
+    <section class="product-main">
+        <div class="container">
+            <div class="product-layout">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="gallery-main">
+                        <div class="main-image">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                 alt="Диван Модерн" id="mainImage">
+                            <div class="image-badges">
+                                <span class="badge new">Новинка</span>
+                                <span class="badge eco">Эко</span>
+                            </div>
+                            <button class="zoom-btn" id="zoomBtn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" 
+                                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-thumbs">
+                        <div class="thumb active" data-image="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Вид спереди">
+                        </div>
+                        <div class="thumb" data-image="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Вид сбоку">
+                        </div>
+                        <div class="thumb" data-image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Вид в интерьере">
+                        </div>
+                        <div class="thumb" data-image="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Детали">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <div class="product-header">
+                        <h1 class="product-title">Диван "Модерн" с кожаной обивкой</h1>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <span class="star full">★</span>
+                                <span class="star full">★</span>
+                                <span class="star full">★</span>
+                                <span class="star full">★</span>
+                                <span class="star half">★</span>
+                            </div>
+                            <span class="rating-value">4.8</span>
+                            <span class="reviews-count">(124 отзыва)</span>
+                            <a href="#reviews" class="reviews-link">Посмотреть все</a>
+                        </div>
+                    </div>
+
+                    <div class="product-price-section">
+                        <div class="price-current">45 900 ₽</div>
+                        <div class="price-old">54 900 ₽</div>
+                        <div class="price-discount">-16%</div>
+                    </div>
+
+                    <div class="product-features">
+                        <div class="feature">
+                            <div class="feature-icon">🚚</div>
+                            <div class="feature-text">
+                                <strong>Бесплатная доставка</strong>
+                                <span>По Москве за 2 дня</span>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🔧</div>
+                            <div class="feature-text">
+                                <strong>Бесплатная сборка</strong>
+                                <span>Профессиональными мастерами</span>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🛡️</div>
+                            <div class="feature-text">
+                                <strong>Гарантия 5 лет</strong>
+                                <span>Расширенная гарантия</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Color Selection -->
+                    <div class="option-group">
+                        <label class="option-label">Цвет</label>
+                        <div class="color-options">
+                            <label class="color-option active">
+                                <input type="radio" name="color" value="brown" checked>
+                                <span class="color-swatch" style="background: #8B4513;"></span>
+                                <span class="color-name">Коричневый</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="color" value="black">
+                                <span class="color-swatch" style="background: #2D3748;"></span>
+                                <span class="color-name">Черный</span>
+                            </label>
+                            <label class="color-option">
+                                <input type="radio" name="color" value="gray">
+                                <span class="color-swatch" style="background: #718096;"></span>
+                                <span class="color-name">Серый</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Fabric Selection -->
+                    <div class="option-group">
+                        <label class="option-label">Материал обивки</label>
+                        <div class="fabric-options">
+                            <label class="fabric-option active">
+                                <input type="radio" name="fabric" value="leather" checked>
+                                <span class="fabric-sample" style="background: #8B4513;"></span>
+                                <span class="fabric-name">Натуральная кожа</span>
+                            </label>
+                            <label class="fabric-option">
+                                <input type="radio" name="fabric" value="eco-leather">
+                                <span class="fabric-sample" style="background: #2D3748;"></span>
+                                <span class="fabric-name">Экокожа</span>
+                            </label>
+                            <label class="fabric-option">
+                                <input type="radio" name="fabric" value="velvet">
+                                <span class="fabric-sample" style="background: #744210;"></span>
+                                <span class="fabric-name">Велюр</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Actions -->
+                    <div class="purchase-section">
+                        <div class="quantity-selector">
+                            <label class="option-label">Количество</label>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn btn-primary btn-lg add-to-cart-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.1 15.9 4.5 17 5.4 17H17M17 17C16.5 17 16 17.5 16 18C16 18.5 16.5 19 17 19C17.5 19 18 18.5 18 18C18 17.5 17.5 17 17 17ZM9 18C9 18.5 8.5 19 8 19C7.5 19 7 18.5 7 18C7 17.5 7.5 17 8 17C8.5 17 9 17.5 9 18Z" 
+                                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Добавить в корзину</span>
+                            </button>
+                            <button class="btn btn-ghost btn-lg buy-now-btn">
+                                <span>Купить сейчас</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Meta -->
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Артикул:</span>
+                            <span class="meta-value">FUR-SF-001</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Категория:</span>
+                            <span class="meta-value">Диваны и кресла</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Материал:</span>
+                            <span class="meta-value">Натуральная кожа, массив дуба</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Размеры:</span>
+                            <span class="meta-value">220×95×85 см</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Share -->
+                    <div class="social-share">
+                        <span class="share-label">Поделиться:</span>
+                        <div class="share-buttons">
+                            <button class="share-btn vk">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93V15.07C2 20.67 3.33 22 8.93 22H15.07C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2M18.15 16.27H16.69C16.14 16.27 15.97 15.82 15 14.83C14.12 14 13.74 13.88 13.53 13.88C13.24 13.88 13.15 13.96 13.15 14.38V15.69C13.15 16.04 13.04 16.26 12.11 16.26C10.57 16.26 8.86 15.33 7.66 13.59C5.85 11.05 5.36 9.13 5.36 8.75C5.36 8.54 5.43 8.34 5.85 8.34H7.32C7.69 8.34 7.83 8.5 7.97 8.9C8.69 10.96 9.89 12.76 10.38 12.76C10.57 12.76 10.65 12.66 10.65 12.25V10.03C10.6 9.41 10.07 9.36 10.07 8.71C10.07 8.5 10.21 8.34 10.44 8.34H12.73C13.04 8.34 13.15 8.5 13.15 8.88V11.77C13.15 12.08 13.28 12.19 13.38 12.19C13.56 12.19 13.72 12.08 14.05 11.75C15.1 10.48 15.85 8.56 15.85 8.56C15.95 8.36 16.11 8.34 16.33 8.34H17.69C18.04 8.34 18.15 8.5 18.15 8.88C18.15 9.33 17.39 11.45 16.2 13.14C15.5 14.08 15 14.33 14.8 14.5C14.5 14.72 14.61 14.85 14.8 15.08C15.42 15.8 16.19 16.27 16.69 16.27H18.15Z"/>
+                                </svg>
+                            </button>
+                            <button class="share-btn telegram">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.38 15.84 14.22 15.51 15.99C15.37 16.74 15.09 16.99 14.83 17.02C14.25 17.07 13.81 16.64 13.25 16.27C12.37 15.69 11.87 15.33 11.02 14.78C10.03 14.12 10.67 13.76 11.24 13.18C11.39 13.03 13.95 10.7 14 10.49C14.0093 10.4582 14.0093 10.4242 14 10.3925C13.9907 10.3608 13.9723 10.3328 13.9472 10.3122C13.9221 10.2916 13.8915 10.2794 13.8592 10.2772C13.8269 10.275 13.7945 10.2829 13.7663 10.3C13.62 10.38 12.66 10.94 10.9 11.98C10.56 12.18 10.25 12.28 9.97 12.27C9.66 12.26 9.07 12.1 8.63 11.96C8.1 11.79 7.69 11.7 7.73 11.39C7.75 11.24 7.94 11.09 8.3 10.93C11.76 9.38 13.74 8.47 14.24 8.21C17.52 6.58 18.24 6.23 18.67 6.23C18.77 6.23 18.97 6.25 19.1 6.35C19.21 6.43 19.24 6.55 19.25 6.64C19.26 6.73 19.27 6.92 19.16 7.04C19.05 7.17 17.76 8.28 16.64 8.8Z"/>
+                                </svg>
+                            </button>
+                            <button class="share-btn whatsapp">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16.75 13.96C17.5 13.96 18.24 13.83 18.94 13.57L21.96 16.59C22.23 16.86 22.31 17.26 22.2 17.62C21.53 19.8 19.68 21.48 17.5 22.03C17.14 22.14 16.74 22.06 16.47 21.79L13.45 18.77C12.73 19.23 11.9 19.54 11 19.64C8.79 19.64 6.82 18.36 5.82 16.43C4.82 14.5 4.82 12.23 5.82 10.3C6.82 8.37 8.79 7.09 11 7.09C13.21 7.09 15.18 8.37 16.18 10.3C17.04 11.97 17.04 13.96 16.75 13.96ZM12 2C6.48 2 2 6.48 2 12C2 13.67 2.41 15.23 3.13 16.6L2 20L5.4 18.87C6.77 19.59 8.33 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 2 12 2Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Tabs -->
+    <section class="product-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="description">Описание</button>
+                    <button class="tab-btn" data-tab="specifications">Характеристики</button>
+                    <button class="tab-btn" data-tab="reviews">Отзывы (124)</button>
+                    <button class="tab-btn" data-tab="delivery">Доставка и сборка</button>
+                </div>
+
+                <div class="tabs-content">
+                    <!-- Description Tab -->
+                    <div class="tab-pane active" id="description">
+                        <div class="description-content">
+                            <div class="description-text">
+                                <h3>Элегантность и комфорт в каждой детали</h3>
+                                <p>Диван "Модерн" — это воплощение современного дизайна и непревзойденного комфорта. Созданный для тех, кто ценит элегантность и функциональность, этот диван станет центральным элементом вашей гостиной.</p>
+                                
+                                <h4>Преимущества:</h4>
+                                <ul>
+                                    <li>Натуральная кожа премиум-класса</li>
+                                    <li>Прочный каркас из массива дуба</li>
+                                    <li>Эргономичная поддержка спины</li>
+                                    <li>Легкий уход и долговечность</li>
+                                    <li>Сертифицированные экологичные материалы</li>
+                                </ul>
+
+                                <div class="features-grid">
+                                    <div class="feature-card">
+                                        <div class="feature-icon">🌿</div>
+                                        <h5>Экологичность</h5>
+                                        <p>Использованы только сертифицированные экологичные материалы</p>
+                                    </div>
+                                    <div class="feature-card">
+                                        <div class="feature-icon">⚡</div>
+                                        <h5>Прочность</h5>
+                                        <p>Каркас выдерживает нагрузку до 300 кг</p>
+                                    </div>
+                                    <div class="feature-card">
+                                        <div class="feature-icon">🎨</div>
+                                        <h5>Дизайн</h5>
+                                        <p>Разработан ведущими европейскими дизайнерами</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Specifications Tab -->
+                    <div class="tab-pane" id="specifications">
+                        <div class="specs-grid">
+                            <div class="spec-group">
+                                <h4>Общие характеристики</h4>
+                                <div class="spec-item">
+                                    <span class="spec-label">Артикул</span>
+                                    <span class="spec-value">FUR-SF-001</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Страна производства</span>
+                                    <span class="spec-value">Италия</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Гарантия</span>
+                                    <span class="spec-value">5 лет</span>
+                                </div>
+                            </div>
+
+                            <div class="spec-group">
+                                <h4>Размеры</h4>
+                                <div class="spec-item">
+                                    <span class="spec-label">Длина</span>
+                                    <span class="spec-value">220 см</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Глубина</span>
+                                    <span class="spec-value">95 см</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Высота</span>
+                                    <span class="spec-value">85 см</span>
+                                </div>
+                            </div>
+
+                            <div class="spec-group">
+                                <h4>Материалы</h4>
+                                <div class="spec-item">
+                                    <span class="spec-label">Обивка</span>
+                                    <span class="spec-value">Натуральная кожа</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Каркас</span>
+                                    <span class="spec-value">Массив дуба</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Наполнитель</span>
+                                    <span class="spec-value">ППУ высокой эластичности</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div class="tab-pane" id="reviews">
+                        <div class="reviews-content">
+                            <div class="reviews-summary">
+                                <div class="rating-overview">
+                                    <div class="overall-rating">
+                                        <div class="rating-number">4.8</div>
+                                        <div class="stars">
+                                            <span class="star full">★</span>
+                                            <span class="star full">★</span>
+                                            <span class="star full">★</span>
+                                            <span class="star full">★</span>
+                                            <span class="star half">★</span>
+                                        </div>
+                                        <div class="rating-count">124 отзыва</div>
+                                    </div>
+                                </div>
+                                <div class="rating-bars">
+                                    <div class="rating-bar">
+                                        <span class="star-label">5 звезд</span>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 80%;"></div>
+                                        </div>
+                                        <span class="bar-count">99</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span class="star-label">4 звезды</span>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 15%;"></div>
+                                        </div>
+                                        <span class="bar-count">19</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span class="star-label">3 звезды</span>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 3%;"></div>
+                                        </div>
+                                        <span class="bar-count">4</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span class="star-label">2 звезды</span>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 1%;"></div>
+                                        </div>
+                                        <span class="bar-count">1</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span class="star-label">1 звезда</span>
+                                        <div class="bar-container">
+                                            <div class="bar-fill" style="width: 1%;"></div>
+                                        </div>
+                                        <span class="bar-count">1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="reviews-list">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">А</div>
+                                            <div class="reviewer-details">
+                                                <div class="reviewer-name">Анна Петрова</div>
+                                                <div class="review-date">15 декабря 2023</div>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars">
+                                                <span class="star full">★</span>
+                                                <span class="star full">★</span>
+                                                <span class="star full">★</span>
+                                                <span class="star full">★</span>
+                                                <span class="star full">★</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        <p>Потрясающий диван! Качество кожи на высшем уровне, сборка профессиональная. Очень удобный, идеально вписался в нашу гостиную. Доставка быстрая, сборщики аккуратные. Рекомендую!</p>
+                                    </div>
+                                    <div class="review-images">
+                                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Фото отзыва">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Tab -->
+                    <div class="tab-pane" id="delivery">
+                        <div class="delivery-content">
+                            <div class="delivery-options">
+                                <h4>Способы доставки</h4>
+                                <div class="option-card">
+                                    <div class="option-icon">🚚</div>
+                                    <div class="option-content">
+                                        <h5>Курьерская доставка</h5>
+                                        <p>Бесплатная доставка по Москве в течение 2 рабочих дней. Подъем на этаж включен.</p>
+                                        <div class="option-meta">
+                                            <span class="price">Бесплатно</span>
+                                            <span class="time">2-3 дня</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-card">
+                                    <div class="option-icon">⚡</div>
+                                    <div class="option-content">
+                                        <h5>Экспресс-доставка</h5>
+                                        <p>Доставка в течение 24 часов. Доступна для заказов до 18:00.</p>
+                                        <div class="option-meta">
+                                            <span class="price">1 200 ₽</span>
+                                            <span class="time">24 часа</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="assembly-info">
+                                <h4>Сборка</h4>
+                                <div class="assembly-card">
+                                    <div class="assembly-icon">🔧</div>
+                                    <div class="assembly-content">
+                                        <h5>Профессиональная сборка</h5>
+                                        <p>Бесплатная сборка нашими специалистами. Гарантия на работы 1 год.</p>
+                                        <ul>
+                                            <li>Сборка согласно инструкции</li>
+                                            <li>Проверка всех соединений</li>
+                                            <li>Уборка после сборки</li>
+                                            <li>Консультация по уходу</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Похожие товары</h2>
+                <p>Дополните интерьер стильной мебелью</p>
+            </div>
+            <div class="products-grid">
+                <!-- Related products will be loaded via JS -->
+            </div>
+        </div>
+    </section>
+
+  <div id="footer"></div><!-- Mini Cart Container -->
+
+    <!-- Image Zoom Modal -->
+    <div class="modal zoom-modal" id="zoomModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="" alt="" id="zoomImage">
+        </div>
+    </div>
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/product.js"></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

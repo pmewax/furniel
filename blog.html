@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог о мебели и дизайне | Furniel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+    </div>
+
+    <!-- Header будет вставлен через include.js -->
+    <div id="header"></div>
+
+    <!-- Search Modal -->
+    <div class="modal search-modal" id="searchModal">
+        <div class="modal-content">
+            <button class="modal-close" id="searchClose">&times;</button>
+            <h3>Поиск статей</h3>
+            <input type="text" id="searchInput" placeholder="Введите тему статьи...">
+            <div class="search-results" id="searchResults">
+                <div class="search-result-item" onclick="window.location.href='article-detail.html'">Топ-10 трендов в дизайне интерьеров 2024</div>
+                <div class="search-result-item" onclick="window.location.href='article-detail-2.html'">Как выбрать идеальный диван: полное руководство</div>
+                <div class="search-result-item" onclick="window.location.href='article-detail-3.html'">Экологичные материалы в мебели: что выбрать в 2024 году</div>
+                <div class="search-result-item" onclick="window.location.href='article-detail-4.html'">10 идей для маленькой квартиры: как визуально расширить пространство</div>
+                <div class="search-result-item" onclick="window.location.href='article-detail-5.html'">Скандинавский стиль: создаем уютный и функциональный интерьер</div>
+                <div class="search-result-item" onclick="window.location.href='article-detail-6.html'">Цветовые тренды 2024: какие оттенки будут в моде</div>
+                <div class="search-result-item" onclick="window.location.href='article-detail-7.html'">Искусство освещения: как свет преображает интерьер</div>
+                <div class="search-result-item" onclick="window.location.href='article-detail-8.html'">Текстиль в интерьере: создаем уют с помощью тканей</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-content">
+                <div class="blog-hero-text animate-slide-in-left">
+                    <div class="hero-badge">
+                        <span>Блог Furniel</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Идеи для вашего
+                        <span class="text-gradient">дома</span>
+                    </h1>
+                    <p class="hero-description">
+                        Полезные статьи, тренды в дизайне интерьеров и советы по созданию уютного пространства. 
+                        Вдохновляйтесь и создавайте дом своей мечты вместе с нами.
+                    </p>
+                   
+                </div>
+                <div class="blog-hero-visual animate-slide-in-right">
+                    <div class="hero-image">
+                        <img src="images/blod.png" 
+                             alt="Дизайн интерьера" class="image-main">
+                        <div class="image-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content-section">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Main Content -->
+                <main class="blog-main">
+                    <!-- Featured Articles -->
+                    <section class="featured-articles">
+                        <h2 class="section-title">Избранные статьи</h2>
+                        <div class="featured-grid">
+                            <article class="featured-article card glass animate-fade-in-up">
+                                <div class="article-image">
+                                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                         alt="Современная гостиная">
+                                    <div class="article-badge">Тренды</div>
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Дизайн</span>
+                                        <span class="article-date">15 дек 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail.html">Топ-10 трендов в дизайне интерьеров 2024</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        Узнайте, какие цвета, материалы и стили будут актуальны в наступающем году. 
+                                        От экологичных решений до smart-технологий в вашем доме.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">2.4K просмотров</span>
+                                            <span class="article-reading-time">5 мин чтения</span>
+                                        </div>
+                                        <a href="article-detail.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="featured-article card glass animate-fade-in-up" style="animation-delay: 0.1s;">
+                                <div class="article-image">
+                                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                         alt="Выбор дивана">
+                                    <div class="article-badge">Советы</div>
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Мебель</span>
+                                        <span class="article-date">12 дек 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail-2.html">Как выбрать идеальный диван: полное руководство</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        Разбираемся в типах диванов, материалах и механизмах трансформации. 
+                                        Советы по выбору размера, цвета и стиля под ваш интерьер.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">3.1K просмотров</span>
+                                            <span class="article-reading-time">7 мин чтения</span>
+                                        </div>
+                                        <a href="article-detail-2.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- All Articles -->
+                    <section class="all-articles">
+                        <div class="section-header">
+                            <h2 class="section-title">Все статьи</h2>
+                            <div class="articles-filter">
+                                <select id="categoryFilter" class="filter-select">
+                                    <option value="all">Все категории</option>
+                                    <option value="trends">Тренды</option>
+                                    <option value="tips">Советы</option>
+                                    <option value="materials">Материалы</option>
+                                    <option value="design">Дизайн</option>
+                                    <option value="care">Уход</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="articles-grid">
+                            <!-- Article 1 - Маленькая квартира -->
+                            <article class="article-card card glass animate-fade-in-up" data-category="tips" data-tags="советы,квартира,пространство">
+                                <div class="article-image">
+                                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                         alt="Маленькая квартира">
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Советы</span>
+                                        <span class="article-date">8 дек 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail-4.html">10 идей для маленькой квартиры: как визуально расширить пространство</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        Эффективные приемы и хитрости для небольших помещений. 
+                                        Мебель-трансформер, световые решения и цветовые схемы.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">2.7K просмотров</span>
+                                        </div>
+                                        <a href="article-detail-4.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Article 2 - Экоматериалы -->
+                            <article class="article-card card glass animate-fade-in-up" data-category="materials" data-tags="материалы,экология,бамбук" style="animation-delay: 0.1s;">
+                                <div class="article-image">
+                                    <img src="images/blog1.png" 
+                                         alt="Экоматериалы">
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Материалы</span>
+                                        <span class="article-date">5 дек 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail-3.html">Экологичные материалы в мебели: что выбрать в 2024 году</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        Обзор современных экологичных материалов для мебели. 
+                                        Бамбук, переработанная древесина, органические ткани и их преимущества.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">1.5K просмотров</span>
+                                        </div>
+                                        <a href="article-detail-3.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Article 3 - Скандинавский стиль -->
+                            <article class="article-card card glass animate-fade-in-up" data-category="design" data-tags="дизайн,скандинавский,минимализм" style="animation-delay: 0.2s;">
+                                <div class="article-image">
+                                    <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                         alt="Скандинавский стиль">
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Дизайн</span>
+                                        <span class="article-date">3 дек 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail-5.html">Скандинавский стиль: создаем уютный и функциональный интерьер</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        Основные принципы скандинавского дизайна. Как создать светлое, 
+                                        уютное пространство с минималистичной мебелью и натуральными материалами.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">2.1K просмотров</span>
+                                        </div>
+                                        <a href="article-detail-5.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Article 4 - Цветовые тренды -->
+                            <article class="article-card card glass animate-fade-in-up" data-category="trends" data-tags="тренды,цвета,2024" style="animation-delay: 0.3s;">
+                                <div class="article-image">
+                                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                         alt="Цветовые тренды">
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Тренды</span>
+                                        <span class="article-date">1 дек 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail-6.html">Цветовые тренды 2024: какие оттенки будут в моде</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        От успокаивающих пастельных тонов до насыщенных земляных оттенков. 
+                                        Обзор цветовых палитр, которые будут определять дизайн интерьеров в новом году.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">1.9K просмотров</span>
+                                        </div>
+                                        <a href="article-detail-6.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Article 5 - Освещение -->
+                            <article class="article-card card glass animate-fade-in-up" data-category="design" data-tags="дизайн,освещение,свет" style="animation-delay: 0.4s;">
+                                <div class="article-image">
+                                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                         alt="Освещение в интерьере">
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Дизайн</span>
+                                        <span class="article-date">25 ноя 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail-7.html">Искусство освещения: как свет преображает интерьер</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        Секреты правильного освещения для разных комнат. Типы светильников, 
+                                        цветовая температура и создание нужной атмосферы.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">1.7K просмотров</span>
+                                        </div>
+                                        <a href="article-detail-7.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Article 6 - Текстиль -->
+                            <article class="article-card card glass animate-fade-in-up" data-category="design" data-tags="дизайн,текстиль,ткани" style="animation-delay: 0.5s;">
+                                <div class="article-image">
+                                    <img src="https://images.unsplash.com/photo-1582582621959-48d27397dc69?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                         alt="Текстиль в интерьере">
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Дизайн</span>
+                                        <span class="article-date">22 ноя 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail-8.html">Текстиль в интерьере: создаем уют с помощью тканей</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        Как правильно сочетать ткани в интерьере. Выбор материалов, 
+                                        цветов и фактур для создания гармоничного пространства.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">1.4K просмотров</span>
+                                        </div>
+                                        <a href="article-detail-8.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Article 7 - Уход за мебелью -->
+                            <article class="article-card card glass animate-fade-in-up" data-category="care" data-tags="уход,мебель,дерево" style="animation-delay: 0.6s;">
+                                <div class="article-image">
+                                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                         alt="Уход за мебелью">
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Уход</span>
+                                        <span class="article-date">10 дек 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail.html">Правильный уход за деревянной мебелью: 7 простых правил</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        Как сохранить красоту и долговечность деревянной мебели. 
+                                        Простые советы по уходу, которые продлят жизнь вашим предметам интерьера.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">1.8K просмотров</span>
+                                        </div>
+                                        <a href="article-detail.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Article 8 - Системы хранения -->
+                            <article class="article-card card glass animate-fade-in-up" data-category="tips" data-tags="советы,хранение,организация" style="animation-delay: 0.7s;">
+                                <div class="article-image">
+                                    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                         alt="Организация хранения">
+                                </div>
+                                <div class="article-content">
+                                    <div class="article-meta">
+                                        <span class="article-category">Советы</span>
+                                        <span class="article-date">28 ноя 2023</span>
+                                    </div>
+                                    <h3 class="article-title">
+                                        <a href="article-detail.html">Системы хранения: как организовать пространство без хаоса</a>
+                                    </h3>
+                                    <p class="article-excerpt">
+                                        Умные решения для хранения вещей в каждой комнате. 
+                                        Встроенные шкафы, модульные системы и скрытые места для хранения.
+                                    </p>
+                                    <div class="article-footer">
+                                        <div class="article-stats">
+                                            <span class="article-views">2.3K просмотров</span>
+                                        </div>
+                                        <a href="article-detail.html" class="read-more">Читать →</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Load More Button -->
+                        <div class="load-more-container">
+                            <button class="btn btn-secondary" id="loadMoreBtn">
+                                <span>Показать еще статьи</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M12 19L5 12M12 19L19 12" 
+                                          stroke="currentColor" stroke-width="2" 
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </section>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget card glass">
+                        <h3 class="widget-title">Категории</h3>
+                        <ul class="categories-list">
+                            <li><a href="#" data-category="all" class="active">Все статьи <span>8</span></a></li>
+                            <li><a href="#" data-category="trends">Тренды <span>2</span></a></li>
+                            <li><a href="#" data-category="tips">Советы <span>3</span></a></li>
+                            <li><a href="#" data-category="materials">Материалы <span>1</span></a></li>
+                            <li><a href="#" data-category="design">Дизайн <span>4</span></a></li>
+                            <li><a href="#" data-category="care">Уход за мебелью <span>1</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Popular Articles Widget -->
+                    <div class="sidebar-widget card glass">
+                        <h3 class="widget-title">Популярные статьи</h3>
+                        <div class="popular-articles">
+                            <article class="popular-article">
+                                <div class="popular-article-image">
+                                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         alt="Выбор дивана">
+                                </div>
+                                <div class="popular-article-content">
+                                    <h4><a href="article-detail-2.html">Как выбрать идеальный диван: полное руководство</a></h4>
+                                    <div class="article-meta">
+                                        <span class="article-views">3.1K просмотров</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="popular-article">
+                                <div class="popular-article-image">
+                                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         alt="Тренды 2024">
+                                </div>
+                                <div class="popular-article-content">
+                                    <h4><a href="article-detail.html">Топ-10 трендов в дизайне интерьеров 2024</a></h4>
+                                    <div class="article-meta">
+                                        <span class="article-views">2.4K просмотров</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="popular-article">
+                                <div class="popular-article-image">
+                                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         alt="Маленькая квартира">
+                                </div>
+                                <div class="popular-article-content">
+                                    <h4><a href="article-detail-4.html">10 идей для маленькой квартиры</a></h4>
+                                    <div class="article-meta">
+                                        <span class="article-views">2.7K просмотров</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="popular-article">
+                                <div class="popular-article-image">
+                                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         alt="Экоматериалы">
+                                </div>
+                                <div class="popular-article-content">
+                                    <h4><a href="article-detail-3.html">Экологичные материалы в мебели</a></h4>
+                                    <div class="article-meta">
+                                        <span class="article-views">1.5K просмотров</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget card glass newsletter-widget">
+                        <h3 class="widget-title">Подписка на рассылку</h3>
+                        <p>Получайте первыми новые статьи и специальные предложения</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Ваш email" required>
+                            <button type="submit" class="btn btn-accent">Подписаться</button>
+                        </form>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="sidebar-widget card glass tags-widget">
+                        <h3 class="widget-title">Популярные теги</h3>
+                        <div class="tags-cloud">
+                            <a href="blog.html?tag=экология" class="tag">#экология</a>
+                            <a href="blog.html?tag=скандинавский" class="tag">#скандинавский</a>
+                            <a href="blog.html?tag=минимализм" class="tag">#минимализм</a>
+                            <a href="blog.html?tag=хранение" class="tag">#хранение</a>
+                            <a href="blog.html?tag=освещение" class="tag">#освещение</a>
+                            <a href="blog.html?tag=текстиль" class="tag">#текстиль</a>
+                            <a href="blog.html?tag=2024" class="tag">#2024</a>
+                        </div>
+                    </div>
+
+                    <!-- Authors Widget -->
+                    <div class="sidebar-widget card glass authors-widget">
+                        <h3 class="widget-title">Наши авторы</h3>
+                        <div class="authors-list">
+                            <div class="author-item">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=60&q=80" 
+                                     alt="Анна Иванова" class="author-avatar-small">
+                                <div class="author-info-small">
+                                    <span class="author-name">Анна Иванова</span>
+                                    <span class="author-specialty">Дизайнер интерьеров</span>
+                                </div>
+                            </div>
+                            <div class="author-item">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=60&q=80" 
+                                     alt="Максим Петров" class="author-avatar-small">
+                                <div class="author-info-small">
+                                    <span class="author-name">Максим Петров</span>
+                                    <span class="author-specialty">Эксперт по мебели</span>
+                                </div>
+                            </div>
+                            <div class="author-item">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=60&q=80" 
+                                     alt="Ольга Семенова" class="author-avatar-small">
+                                <div class="author-info-small">
+                                    <span class="author-name">Ольга Семенова</span>
+                                    <span class="author-specialty">Дизайнер малогабаритных пространств</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content card bg-gradient shadow-glow">
+                <div class="cta-text">
+                    <h2>Нужна помощь с дизайном?</h2>
+                    <p>Наши дизайнеры помогут создать идеальный интерьер для вашего дома</p>
+                </div>
+                <div class="cta-actions">
+                    <button class="btn btn-accent btn-lg" id="designConsultBtn">
+                        <span>Бесплатная консультация</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 12H16M12 8V16M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" 
+                                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer будет вставлен через include.js -->
+    <div id="footer"></div>
+
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/blog.js"></script>
+</body>
+</html>

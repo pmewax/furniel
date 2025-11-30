@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог мебели - Furniel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+    </div>
+
+    <!-- Header будет загружен через include.js -->
+    <div id="header"></div>
+
+    <!-- Catalog Hero -->
+    <section class="catalog-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text animate-slide-in-left">
+                    <div class="breadcrumb">
+                        <a href="index.html">Главная</a>
+                        <span>/</span>
+                        <span class="current">Каталог</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Коллекция
+                        <span class="text-gradient">современной</span>
+                        мебели
+                    </h1>
+                    <p class="hero-description">
+                        Откройте для себя мебель, которая сочетает в себе элегантность, 
+                        комфорт и непревзойденное качество. Более 500 товаров в наличии.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Товаров в каталоге</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Месяцев гарантии</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">35</div>
+                            <div class="stat-label">Городов доставки</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual animate-slide-in-right">
+                    <div class="hero-image">
+                        <img src="images/catalog.png" 
+                             alt="Современная мебель" class="image-main">
+                        <div class="image-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Content -->
+    <section class="catalog-content">
+        <div class="container">
+            <!-- Mobile Filters Toggle -->
+            <div class="mobile-filters-toggle">
+                <button class="btn btn-primary btn-sm" id="mobileFiltersToggle">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 4C3 3.44772 3.44772 3 4 3H20C20.5523 3 21 3.44772 21 4V6C21 6.55228 20.5523 7 20 7H4C3.44772 7 3 6.55228 3 6V4Z" 
+                              stroke="currentColor" stroke-width="2"/>
+                        <path d="M3 12C3 11.4477 3.44772 11 4 11H14C14.5523 11 15 11.4477 15 12V14C15 14.5523 14.5523 15 14 15H4C3.44772 15 3 14.5523 3 14V12Z" 
+                              stroke="currentColor" stroke-width="2"/>
+                        <path d="M3 20C3 19.4477 3.44772 19 4 19H18C18.5523 19 19 19.4477 19 20V22C19 22.5523 18.5523 23 18 23H4C3.44772 23 3 22.5523 3 22V20Z" 
+                              stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Фильтры
+                    <span class="active-filters-count" id="activeFiltersCount">0</span>
+                </button>
+                <div class="active-filters-pills" id="activeFiltersPills"></div>
+            </div>
+
+            <div class="catalog-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar glass" id="filtersSidebar">
+                    <div class="filters-header">
+                        <h3>Фильтры</h3>
+                        <div class="filters-header-actions">
+                            <button class="btn btn-ghost btn-sm" id="resetFilters">Сбросить</button>
+                            <button class="btn btn-ghost btn-sm filters-close" id="filtersClose">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Search Filter -->
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h4 class="filter-title">Поиск товаров</h4>
+                            <button class="filter-clear" data-filter="search" id="clearSearch" style="display: none;">
+                                Очистить
+                            </button>
+                        </div>
+                        <div class="filter-search">
+                            <input type="text" id="searchFilter" placeholder="Введите название или скажите 'найти...'" class="input-glass">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="search-icon">
+                                <path d="M21 21L16.514 16.506M19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" 
+                                      stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <button class="voice-search-btn" id="voiceSearchBtn" title="Голосовой поиск">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2C13.6569 2 15 3.34315 15 5V11C15 12.6569 13.6569 14 12 14C10.3431 14 9 12.6569 9 11V5C9 3.34315 10.3431 2 12 2Z" 
+                                          stroke="currentColor" stroke-width="2"/>
+                                    <path d="M19 10V11C19 14.866 15.866 18 12 18C8.13401 18 5 14.866 5 11V10" 
+                                          stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M8 22H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- Search Suggestions -->
+                        <div class="search-suggestions" id="searchSuggestions">
+                            <div class="suggestions-header">
+                                <span>Популярные запросы</span>
+                            </div>
+                            <div class="suggestions-list" id="suggestionsList"></div>
+                            <div class="suggestions-footer">
+                                <span>Используйте ↑↓ для навигации, Enter для выбора</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h4 class="filter-title">Цена, ₽</h4>
+                            <button class="filter-clear" data-filter="price">Очистить</button>
+                        </div>
+                        <div class="price-range">
+                            <div class="range-inputs">
+                                <div class="input-wrapper">
+                                    <label>От</label>
+                                    <input type="number" id="minPrice" placeholder="0" min="0">
+                                </div>
+                                <div class="input-wrapper">
+                                    <label>До</label>
+                                    <input type="number" id="maxPrice" placeholder="100000" max="1000000">
+                                </div>
+                            </div>
+                            <div class="range-slider">
+                                <div class="slider-track"></div>
+                                <input type="range" min="0" max="100000" value="0" class="range-min" id="rangeMin">
+                                <input type="range" min="0" max="100000" value="100000" class="range-max" id="rangeMax">
+                            </div>
+                            <div class="price-display">
+                                <span id="currentMinPrice">0 ₽</span>
+                                <span>-</span>
+                                <span id="currentMaxPrice">100 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories Filter -->
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h4 class="filter-title">Категории</h4>
+                            <button class="filter-clear" data-filter="categories">Очистить</button>
+                        </div>
+                        <div class="filter-options">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="sofas">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Диваны и кресла</span>
+                                <span class="count">(0)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="tables">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Столы</span>
+                                <span class="count">(0)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="chairs">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Стулья</span>
+                                <span class="count">(0)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="beds">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Кровати</span>
+                                <span class="count">(0)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="category" value="storage">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Системы хранения</span>
+                                <span class="count">(0)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Materials Filter -->
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h4 class="filter-title">Материалы</h4>
+                            <button class="filter-clear" data-filter="materials">Очистить</button>
+                        </div>
+                        <div class="filter-tags">
+                            <label class="tag-checkbox">
+                                <input type="checkbox" name="material" value="wood">
+                                <span class="tag">Дерево</span>
+                            </label>
+                            <label class="tag-checkbox">
+                                <input type="checkbox" name="material" value="metal">
+                                <span class="tag">Металл</span>
+                            </label>
+                            <label class="tag-checkbox">
+                                <input type="checkbox" name="material" value="fabric">
+                                <span class="tag">Ткань</span>
+                            </label>
+                            <label class="tag-checkbox">
+                                <input type="checkbox" name="material" value="leather">
+                                <span class="tag">Кожа</span>
+                            </label>
+                            <label class="tag-checkbox">
+                                <input type="checkbox" name="material" value="glass">
+                                <span class="tag">Стекло</span>
+                            </label>
+                            <label class="tag-checkbox">
+                                <input type="checkbox" name="material" value="plastic">
+                                <span class="tag">Пластик</span>
+                            </label>
+                            <label class="tag-checkbox">
+                                <input type="checkbox" name="material" value="marble">
+                                <span class="tag">Мрамор</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Colors Filter -->
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h4 class="filter-title">Цвета</h4>
+                            <button class="filter-clear" data-filter="colors">Очистить</button>
+                        </div>
+                        <div class="color-filters">
+                            <label class="color-checkbox">
+                                <input type="checkbox" name="color" value="white">
+                                <span class="color-swatch" style="background: #FFFFFF; border: 1px solid #e2e8f0;" title="Белый"></span>
+                            </label>
+                            <label class="color-checkbox">
+                                <input type="checkbox" name="color" value="black">
+                                <span class="color-swatch" style="background: #2D3748;" title="Черный"></span>
+                            </label>
+                            <label class="color-checkbox">
+                                <input type="checkbox" name="color" value="brown">
+                                <span class="color-swatch" style="background: #744210;" title="Коричневый"></span>
+                            </label>
+                            <label class="color-checkbox">
+                                <input type="checkbox" name="color" value="gray">
+                                <span class="color-swatch" style="background: #718096;" title="Серый"></span>
+                            </label>
+                            <label class="color-checkbox">
+                                <input type="checkbox" name="color" value="beige">
+                                <span class="color-swatch" style="background: #E2D5C2;" title="Бежевый"></span>
+                            </label>
+                            <label class="color-checkbox">
+                                <input type="checkbox" name="color" value="navy">
+                                <span class="color-swatch" style="background: #2C5282;" title="Темно-синий"></span>
+                            </label>
+                            <label class="color-checkbox">
+                                <input type="checkbox" name="color" value="green">
+                                <span class="color-swatch" style="background: #38A169;" title="Зеленый"></span>
+                            </label>
+                            <label class="color-checkbox">
+                                <input type="checkbox" name="color" value="blue">
+                                <span class="color-swatch" style="background: #3182CE;" title="Синий"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Style Filter -->
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h4 class="filter-title">Стиль</h4>
+                            <button class="filter-clear" data-filter="style">Очистить</button>
+                        </div>
+                        <div class="filter-options">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="style" value="modern">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Современный</span>
+                                <span class="count">(0)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="style" value="classic">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Классический</span>
+                                <span class="count">(0)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="style" value="scandinavian">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Скандинавский</span>
+                                <span class="count">(0)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="style" value="industrial">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Лофт</span>
+                                <span class="count">(0)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="style" value="minimalism">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Минимализм</span>
+                                <span class="count">(0)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Features Filter -->
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h4 class="filter-title">Особенности</h4>
+                            <button class="filter-clear" data-filter="features">Очистить</button>
+                        </div>
+                        <div class="filter-options">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="feature" value="new">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Новинки</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="feature" value="sale">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Распродажа</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="feature" value="eco">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Экологичные</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="feature" value="smart">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Умная мебель</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="feature" value="ergonomic">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Эргономичная</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="feature" value="modular">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Модульная</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h4 class="filter-title">Наличие</h4>
+                            <button class="filter-clear" data-filter="availability">Очистить</button>
+                        </div>
+                        <div class="filter-options">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="availability" value="in_stock">
+                                <span class="checkmark"></span>
+                                <span class="label-text">В наличии</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="availability" value="pre_order">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Под заказ</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="availability" value="fast_delivery">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Быстрая доставка</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Filter Actions -->
+                    <div class="filter-actions">
+                        <button class="btn btn-primary btn-block" id="applyFilters">Применить фильтры</button>
+                        <button class="btn btn-ghost btn-block" id="closeFilters">Закрыть</button>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <main class="products-main">
+                    <!-- Recently Viewed -->
+                    <section class="recently-viewed" id="recentlyViewed">
+                        <div class="section-header">
+                            <h3>📚 Вы недавно смотрели</h3>
+                            <button class="btn btn-ghost btn-sm" onclick="catalog.clearRecentlyViewed()">
+                                Очистить историю
+                            </button>
+                        </div>
+                        <div class="products-grid recently-viewed-grid" id="recentlyViewedGrid"></div>
+                    </section>
+
+                    <!-- Toolbar -->
+                    <div class="products-toolbar glass">
+                        <div class="toolbar-left">
+                            <div class="results-count">
+                                Найдено <span id="resultsCount">0</span> товаров
+                            </div>
+                            <div class="selected-filters" id="selectedFilters"></div>
+                        </div>
+                        <div class="toolbar-right">
+                            <div class="sort-select">
+                                <label for="sortBy">Сортировка:</label>
+                                <select id="sortBy">
+                                    <option value="popular">По популярности</option>
+                                    <option value="price-asc">По возрастанию цены</option>
+                                    <option value="price-desc">По убыванию цены</option>
+                                    <option value="newest">Сначала новинки</option>
+                                    <option value="name">По названию</option>
+                                </select>
+                            </div>
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="grid" title="Сетка">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                                        <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                                        <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                                        <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </button>
+                                <button class="view-btn" data-view="list" title="Список">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <rect x="3" y="6" width="18" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+                                        <rect x="3" y="11" width="18" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+                                        <rect x="3" y="16" width="18" height="2" rx="1" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Filters -->
+                    <div class="quick-filters">
+                        <div class="quick-filter active" data-filter="all">Все товары</div>
+                        <div class="quick-filter" data-filter="new">Новинки</div>
+                        <div class="quick-filter" data-filter="sale">Распродажа</div>
+                        <div class="quick-filter" data-filter="in_stock">В наличии</div>
+                        <div class="quick-filter" data-filter="bestsellers">Хиты продаж</div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid grid-view" id="productsGrid">
+                        <!-- Products will be loaded via JS -->
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="loading-state" id="loadingState">
+                        <div class="loading-spinner"></div>
+                        <p>Загрузка товаров...</p>
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="load-more-section">
+                        <button class="btn btn-primary" id="loadMore" style="display: none;">
+                            <span>Показать еще товары</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 5V19M12 19L5 12M12 19L19 12" 
+                                      stroke="currentColor" stroke-width="2" 
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content card bg-gradient shadow-glow">
+                <div class="newsletter-text">
+                    <h2>Не нашли что искали?</h2>
+                    <p>Подпишитесь на рассылку и получите уведомление о поставке нужного товара</p>
+                </div>
+                <div class="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="Ваш email" class="input-glass">
+                        <button class="btn btn-accent">Подписаться</button>
+                    </div>
+                    <p class="newsletter-note">Подписываясь, вы соглашаетесь с политикой конфиденциальности</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer будет загружен через include.js -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/catalog.js"></script>
+</body>
+</html>

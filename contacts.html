@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Furniel</title>
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+    </div>
+
+<div id="header"></div>
+
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Главная</a>
+            <a href="catalog.html" class="mobile-nav-link">Каталог</a>
+            <a href="blog.html" class="mobile-nav-link">Блог</a>
+            <a href="about.html" class="mobile-nav-link">О нас</a>
+            <a href="contacts.html" class="mobile-nav-link active">Контакты</a>
+        </nav>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal search-modal" id="searchModal">
+        <div class="modal-content">
+            <button class="modal-close" id="searchClose">&times;</button>
+            <h3>Поиск товаров</h3>
+            <input type="text" id="searchInput" placeholder="Введите название товара...">
+            <div class="search-results" id="searchResults">
+                <!-- Результаты поиска будут здесь -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contacts Hero -->
+    <section class="contacts-hero">
+        <div class="container">
+            <div class="contacts-hero-content">
+                <div class="contacts-hero-text animate-slide-in-left">
+                    <h1>Свяжитесь с нами</h1>
+                    <p>Мы всегда готовы ответить на ваши вопросы и помочь с выбором мебели. Наша команда экспертов готова предоставить вам профессиональную консультацию.</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Поддержка</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15 мин</div>
+                            <div class="stat-label">Среднее время ответа</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Довольных клиентов</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacts-hero-visual animate-slide-in-right">
+                    <div class="contact-visual-element">
+                        <div class="visual-icon">💬</div>
+                        <h3>Быстрая связь</h3>
+                        <p>Мы на связи когда вам удобно</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="container">
+        <div class="contact-methods-grid">
+            <div class="contact-method-card animate-fade-in-up">
+                <div class="contact-icon">📞</div>
+                <h3>Телефон</h3>
+                <p>Позвоните нам для быстрой консультации и ответов на ваши вопросы</p>
+                <a href="tel:+79939597561" class="contact-link">+7 993 959-75-61</a>
+                <p class="small-text">Ежедневно с 9:00 до 21:00</p>
+            </div>
+            
+            <div class="contact-method-card animate-fade-in-up" style="animation-delay: 0.1s;">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <p>Напишите нам на почту, и мы ответим в течение 24 часов</p>
+                <a href="mailto:info@furniel.com" class="contact-link">info@furniel.com</a>
+                <p class="small-text">Ответим на все ваши вопросы</p>
+            </div>
+            
+            <div class="contact-method-card animate-fade-in-up" style="animation-delay: 0.2s;">
+                <div class="contact-icon">💬</div>
+                <h3>Мессенджеры</h3>
+                <p>Быстрая связь через популярные мессенджеры</p>
+                <div class="messenger-links">
+                    <a href="https://t.me/busnessoa" class="messenger-link telegram" target="_blank">
+                        <span class="messenger-icon">📱</span>
+                        Telegram
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=%2B79323297561&text&type=phone_number&app_absent=0" class="messenger-link whatsapp" target="_blank">
+                        <span class="messenger-icon">💚</span>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-method-card animate-fade-in-up" style="animation-delay: 0.3s;">
+                <div class="contact-icon">👥</div>
+                <h3>Социальные сети</h3>
+                <p>Следите за нашими новостями и акциями в социальных сетях</p>
+                <a href="https://vk.com/furniel_shop" class="contact-link" target="_blank">VKontakte</a>
+                <p class="small-text">Акции и новые поступления</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-form-container glass">
+                <h2>Напишите нам</h2>
+                <p class="form-description">Заполните форму ниже, и мы свяжемся с вами в ближайшее время</p>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Тема сообщения</label>
+                        <select id="subject" name="subject">
+                            <option value="general">Общий вопрос</option>
+                            <option value="order">Вопрос по заказу</option>
+                            <option value="product">Вопрос о товаре</option>
+                            <option value="delivery">Доставка</option>
+                            <option value="warranty">Гарантия</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="message">Сообщение *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreement" required>
+                            <span class="checkmark"></span>
+                            <span>Я соглашаюсь с <a href="privacy-policy.html">Политикой конфиденциальности</a></span>
+                        </label>
+                    </div>
+                    
+                    <div class="submit-btn">
+                        <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Частые вопросы</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Как оформить заказ?</h3>
+                    <p>Выберите товары в каталоге, добавьте их в корзину и перейдите к оформлению заказа. Заполните контактные данные и выберите способ доставки.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Какие способы оплаты принимаются?</h3>
+                    <p>Мы принимаем банковские карты, онлайн-платежи, переводы по реквизитам. Также возможна оплата при получении для некоторых регионов.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Сколько стоит доставка?</h3>
+                    <p>Стоимость доставки зависит от региона и габаритов товара. Подробную информацию вы можете уточнить у нашего менеджера.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Есть ли гарантия на мебель?</h3>
+                    <p>Да, на всю мебель предоставляется гарантия от 12 до 24 месяцев в зависимости от категории товара.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="footer"></div>
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/contacts.js"></script>
+    <script src="assets/js/header-functionality.js"></script>
+</body>
+</html>
