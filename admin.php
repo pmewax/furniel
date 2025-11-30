@@ -1,18 +1,25 @@
 <?php
-session_start();
 
-// Если админ не авторизован — возвращаем 404, будто страницы нет
+declare(strict_types=1);
+
+require_once __DIR__ . '/config/bootstrap.php';
+
+ensureSession();
+
 if (empty($_SESSION['is_admin'])) {
-    header("HTTP/1.1 404 Not Found");
-    echo "<!doctype html><title>404 Not Found</title><h1>404 Not Found</h1>";
+    header('HTTP/1.1 404 Not Found');
+    echo '<!doctype html><title>404 Not Found</title><h1>404 Not Found</h1>';
     exit;
 }
+
+$csrfToken = getCsrfToken();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
     <title>Админка — Furniel</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
@@ -48,7 +55,7 @@ if (empty($_SESSION['is_admin'])) {
                     📈 Статистика
                 </div>
             </div>
-            
+
             <div class="admin-content active" id="products-tab">
                 <h2>Управление товарами</h2>
                 <div class="admin-actions">
@@ -78,7 +85,7 @@ if (empty($_SESSION['is_admin'])) {
                     </table>
                 </div>
             </div>
-            
+
             <div class="admin-content" id="orders-tab">
                 <h2>Управление заказами</h2>
                 <div class="orders-list">
@@ -87,7 +94,7 @@ if (empty($_SESSION['is_admin'])) {
                     <p style="font-size:0.875rem;color:var(--text-muted);margin-top:0.5rem;">Скоро здесь появится полная информация о заказах</p>
                 </div>
             </div>
-            
+
             <div class="admin-content" id="csv-tab">
                 <h2>Загрузка товаров из CSV</h2>
                 <div class="csv-upload">
@@ -108,7 +115,7 @@ if (empty($_SESSION['is_admin'])) {
                     <!-- Превью CSV будет загружено через JS -->
                 </div>
             </div>
-            
+
             <div class="admin-content" id="stats-tab">
                 <h2>Статистика магазина</h2>
                 <div class="stats-grid">
@@ -134,7 +141,7 @@ if (empty($_SESSION['is_admin'])) {
     </section>
 
     <div id="footer"></div>
-    
+
     <script src="assets/js/include.js"></script>
     <script src="assets/js/products.js"></script>
     <script src="assets/js/csv-loader.js"></script>

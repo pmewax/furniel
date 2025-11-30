@@ -1,11 +1,17 @@
 // ======= admin.js ======
 
+const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content || '';
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeAdminPanel();
 });
 
 function initializeAdminPanel() {
     console.log('Инициализация админ-панели...');
+
+    if (!csrfToken) {
+        showNotification('Не удалось получить CSRF токен. Обновите страницу.', 'error');
+    }
 
     document.querySelectorAll('.admin-tab').forEach(tab => {
         tab.addEventListener('click', function() {
@@ -32,7 +38,8 @@ async function getProducts() {
     try {
         const res = await fetch('/api/products.php');
         if (!res.ok) throw new Error('Ошибка загрузки товаров');
-        const data = await res.json();
+        const { success, data } = await res.json();
+        if (!success) throw new Error('Ошибка загрузки товаров');
         return Array.isArray(data) ? data : [];
     } catch (error) {
         console.error('Ошибка:', error);
@@ -45,11 +52,16 @@ async function saveProduct(product) {
     try {
         const res = await fetch('/api/products.php', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': csrfToken
+            },
             body: JSON.stringify(product)
         });
         if (!res.ok) throw new Error('Ошибка сохранения товара');
-        return await res.json();
+        const result = await res.json();
+        if (!result.success) throw new Error(result.error || 'Ошибка сохранения товара');
+        return result;
     } catch (error) {
         console.error('Ошибка:', error);
         showNotification('Ошибка сохранения товара', 'error');
@@ -59,10 +71,13 @@ async function saveProduct(product) {
 
 async function deleteProduct(id) {
     if (!confirm('Удалить этот товар?')) return;
-    
+
     try {
-        const res = await fetch(`/api/products.php?id=${id}`, { 
-            method: 'DELETE' 
+        const res = await fetch(`/api/products.php?id=${id}`, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-Token': csrfToken
+            }
         });
         if (!res.ok) throw new Error('Ошибка удаления товара');
         showNotification('Товар удалён');
@@ -281,10 +296,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (importBtn) {
         importBtn.addEventListener('click', async () => {
             if (!confirm('Импортировать файл woodville_transformed_for_craftum_v2.csv в базу данных?')) return;
-            
+
             showNotification('Импорт запущен...', 'info');
             try {
-                const res = await fetch('/api/import_csv.php');
+                const res = await fetch('/api/import_csv.php', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-Token': csrfToken
+                    }
+                });
                 const data = await res.json();
 
                 if (data.success) {
