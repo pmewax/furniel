@@ -1,25 +1,34 @@
 <?php
+session_start();
+
 header("Content-Type: application/json; charset=utf-8");
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
-$host = "localhost";
-$dbname = "cu87306_bade";
-$username = "cu87306_bade";
-$password = "YY17pFLM";
+require_once __DIR__ . '/../config/database.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
-} catch (PDOException $e) {
-    echo json_encode(["error" => "Ошибка подключения: " . $e->getMessage()]);
+    $pdo = createPdoConnection();
+} catch (RuntimeException $e) {
+    http_response_code(500);
+    echo json_encode(["error" => "Ошибка подключения к базе данных"]);
     exit;
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
+$isAdmin = !empty($_SESSION['is_admin']);
+
+if (in_array($method, ['POST', 'DELETE'], true) && !$isAdmin) {
+    http_response_code(403);
+    echo json_encode(["error" => "Доступ запрещен"]);
+    exit;
+}
 
 switch ($method) {
     case 'GET':
@@ -31,6 +40,7 @@ switch ($method) {
         $data = json_decode(file_get_contents("php://input"), true);
 
         if (!$data) {
+            http_response_code(400);
             echo json_encode(["error" => "Нет данных"]);
             exit;
         }
@@ -61,7 +71,7 @@ switch ($method) {
         break;
 
     case 'DELETE':
-        parse_str($_SERVER['QUERY_STRING'], $params);
+        parse_str($_SERVER['QUERY_STRING'] ?? '', $params);
         $id = $params['id'] ?? null;
 
         if ($id) {
@@ -69,7 +79,12 @@ switch ($method) {
             $stmt->execute([$id]);
             echo json_encode(["success" => true]);
         } else {
+            http_response_code(400);
             echo json_encode(["error" => "Не указан ID"]);
         }
         break;
+
+    default:
+        http_response_code(405);
+        echo json_encode(["error" => "Метод не поддерживается"]);
 }

@@ -7,22 +7,15 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
     exit('404 Not Found');
 }
 
+require_once __DIR__ . '/../config/database.php';
+
 header('Content-Type: text/plain; charset=utf-8');
 
-// ✅ Подключение к БД
-$host = "localhost";
-$dbname = "cu87306_bade";
-$username = "cu87306_bade";
-$password = "YY17pFLM";
-
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
+    $pdo = createPdoConnection();
     echo "✅ Подключение к БД успешно\n";
-} catch (PDOException $e) {
-    exit("❌ Ошибка подключения к БД: " . $e->getMessage());
+} catch (RuntimeException $e) {
+    exit("❌ Ошибка подключения к БД\n");
 }
 
 // ✅ Очищаем таблицу перед импортом
