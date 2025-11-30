@@ -9,28 +9,16 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
 
 header('Content-Type: text/plain; charset=utf-8');
 
-// ✅ Подключение к БД
-$host = "localhost";
-$dbname = "cu87306_bade";
-$username = "cu87306_bade";
-$password = "YY17pFLM";
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
-    echo "✅ Подключение к БД успешно\n";
-} catch (PDOException $e) {
-    exit("❌ Ошибка подключения к БД: " . $e->getMessage());
-}
+/** @var PDO $pdo */
+$pdo = require __DIR__ . '/../db.php';
 
 // ✅ Очищаем таблицу перед импортом
 try {
     $pdo->exec("TRUNCATE TABLE products");
     echo "🧹 Таблица products очищена\n";
 } catch (PDOException $e) {
-    echo "⚠️ Не удалось очистить таблицу: " . $e->getMessage() . "\n";
+    error_log('Не удалось очистить таблицу products: ' . $e->getMessage());
+    echo "⚠️ Не удалось очистить таблицу, данные будут добавлены к существующим.\n";
 }
 
 // ✅ Путь к CSV

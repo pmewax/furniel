@@ -4,20 +4,8 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
-$host = "localhost";
-$dbname = "cu87306_bade";
-$username = "cu87306_bade";
-$password = "YY17pFLM";
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
-} catch (PDOException $e) {
-    echo json_encode(["error" => "Ошибка подключения: " . $e->getMessage()]);
-    exit;
-}
+/** @var PDO $pdo */
+$pdo = require __DIR__ . '/../db.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 
