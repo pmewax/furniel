@@ -9,17 +9,11 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
 
 header('Content-Type: text/plain; charset=utf-8');
 
-// ✅ Подключение к БД
-$host = "localhost";
-$dbname = "cu87306_bade";
-$username = "cu87306_bade";
-$password = "YY17pFLM";
+require_once __DIR__ . '/../config/database.php';
 
+// ✅ Подключение к БД
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
+    $pdo = get_database_connection();
     echo "✅ Подключение к БД успешно\n";
 } catch (PDOException $e) {
     exit("❌ Ошибка подключения к БД: " . $e->getMessage());
